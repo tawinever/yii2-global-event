@@ -71,3 +71,5 @@ Some Info
 There is missing feature of testing because ... writing abstract unit test was strange.
 
 Here is my [CV](https://hh.kz/resume/f7d13300ff0283b0130039ed1f774976783279) 
+
+Time spent for development is about 3 hours everyday in 5 days. 
