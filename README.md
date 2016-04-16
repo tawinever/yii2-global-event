@@ -13,6 +13,14 @@ Installation
 
 And You are ready to work.
 
+Demonstration
+-------------
+    1.Login to system as admin/admin
+    2.Create Notification type NEVENT_RAUAN
+    3.!!! IMPORTANT : Open tab Users from the nav menu. 
+        It will trigger event NEVENT_RAUAN so that you will get notications which were chosen in creation process of notify.
+    4. To see browser notifications go to main page. 
+
 
 Under Hood
 ----------
@@ -34,10 +42,22 @@ Under Hood
         Attributes:
             target  - User object (used when we are trying to send notification to certain user)
             attach - Array of objects (data sent with trigger)
-            
+           
+4. To extend component to create Telegram notification or SMS notification you should do above steps.
+        1. Create const TYPO_%something% in app\components\Notification
+        2. Add block of code in method 'sendNotification' in app\components\Notification
+            if(in_array(self::TYPE_%something%,$typeArray))
+            {
+                //$sender  - User object - sender
+                //$target  - User object - target
+                //$msg['title'] - notification title
+                //$msg['fulltext'] - notification text
+            }
+
+
 Some Info
 ---------
 
-There is missing feature of testing because ... writing unit test for CRUD was too strange.
+There is missing feature of testing because ... writing unit test for CRUD was too strange or I am just stupid enough.
 
 Here is my [CV](https://hh.kz/resume/f7d13300ff0283b0130039ed1f774976783279)
