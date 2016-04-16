@@ -11,6 +11,7 @@ Installation
 3. Run composer global require "fxp/composer-asset-plugin:~1.1.1" 
 4. Run composer update
 5. Run yii migrate
+6. Set yii2-global-event/web as virtual host (like settings in Yii advanced template)
 
 And You are ready to work.
 
