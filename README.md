@@ -8,8 +8,9 @@ Installation
 
 1. Clone repo
 2. Create db 'rgk'
-3. Run composer update
-4. Run yii migrate
+3. Run composer global require "fxp/composer-asset-plugin:~1.0.3" 
+4. Run composer update
+5. Run yii migrate
 
 And You are ready to work.
 
