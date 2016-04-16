@@ -1,102 +1,43 @@
-Yii 2 Basic Project Template
-============================
+Yii2 - Global Notification Event Handler
+========================================
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+This is small Yii2 - basic app with global notification handler component.
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
-
-DIRECTORY STRUCTURE
--------------------
-
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
-
-
-
-REQUIREMENTS
+Installation
 ------------
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+1. Clone repo
+2. Create db 'rgk'
+3. Run composer update
+4. Run yii migrate
+
+And You are ready to work.
 
 
-INSTALLATION
-------------
+Under Hood
+----------
 
-### Install from an Archive File
+1. To include model to Notification component, you should write full path of model class in configs.
+    You can see example in app\config\web\ => notiHandler => models
+2. Events that will be handled by component should be defined as const NEVENT_%eventName%
+    Also you should specify data that will be sent with event in NATTACH_%eventName%
+    
+    NATTACH is array with 2 keys 'target' and 'attach'
+    
+        If in trigger you are sending 'User' object 'target' = true
+         
+         In other case 'target' => false
+         
+         NATTACH['attach'] - Array with full name of models that were sent in trigger.
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+3. In trigger we use class NotificationEvent to send data to handler. 
+        Attributes:
+            target  - User object (used when we are trying to send notification to certain user)
+            attach - Array of objects (data sent with trigger)
+            
+Some Info
+---------
 
-Set cookie validation key in `config/web.php` file to some random secret string:
+There is missing feature of testing because ... writing unit test for CRUD was too strange.
 
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
-
-You can then access the application through the following URL:
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
-
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-CONFIGURATION
--------------
-
-### Database
-
-Edit the file `config/db.php` with real data, for example:
-
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
-
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
+Here is my [CV](https://hh.kz/resume/f7d13300ff0283b0130039ed1f774976783279)
