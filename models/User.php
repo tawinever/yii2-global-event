@@ -24,12 +24,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     const ROLE_BLOCKED = 0;
 
     const NEVENT_RAUAN  = "user_rauan";
-    const NEVENT_ALO    = "user_alo";
-    const NEVENT_MAL    = "user_mal";
 
 	const NATTACH_RAUAN = ['target' => true, 'attach' => ['app\models\Post']];
-	const NATTACH_ALO   = ['target' => false, 'attach' => ['app\models\Post','app\models\User']];
-	const NATTACH_MAL   = ['target' => false, 'attach' => ['app\models\Post']];
 
     /**
      * @inheritdoc
