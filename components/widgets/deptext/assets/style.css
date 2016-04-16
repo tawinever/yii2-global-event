@@ -1,0 +1,21 @@
+.available-tokens div:first-child
+{
+    font-size: 16px;
+    display: block;
+}
+.available-tokens div .token-header{
+    display: inline-block;
+    font-size: 14px;
+    font-weight:bold;
+}
+.available-tokens .token {
+    display: inline-block;
+    padding: 0 16px;
+    cursor: pointer;
+    font-size:12px;
+    font-family: Monospace;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+.available-tokens .token:last-child{
+    border:none;
+}
